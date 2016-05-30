@@ -13,7 +13,7 @@ pixmapdir = $(datadir)/pixmaps
 pixmap_DATA = htop.png
 
 htop_CFLAGS = -pedantic -Wall $(wextra_flag) -std=c99 -D_XOPEN_SOURCE_EXTENDED -DSYSCONFDIR=\"$(sysconfdir)\" -I"$(top_srcdir)/$(my_htop_platform)"
-htop_LDFLAGS = 
+htop_LDFLAGS =
 AM_CPPFLAGS = -DNDEBUG
 
 myhtopsources = AvailableMetersPanel.c CategoriesPanel.c CheckItem.c \
@@ -37,12 +37,12 @@ AffinityPanel.h HostnameMeter.h OpenFilesScreen.h Affinity.h IncSet.h Action.h \
 EnvScreen.h InfoScreen.h XAlloc.h
 
 if HTOP_LINUX
-htop_CFLAGS += -rdynamic 
+htop_CFLAGS += -rdynamic
 myhtopplatsources = linux/Platform.c linux/IOPriorityPanel.c linux/IOPriority.c \
-linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c
+linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c TemperatureMeter.c
 
 myhtopplatheaders = linux/Platform.h linux/IOPriorityPanel.h linux/IOPriority.h \
-linux/LinuxProcess.h linux/LinuxProcessList.h linux/LinuxCRT.h linux/Battery.h
+linux/LinuxProcess.h linux/LinuxProcessList.h linux/LinuxCRT.h linux/Battery.h TemperatureMeter.h
 endif
 
 if HTOP_FREEBSD
