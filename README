@@ -1,7 +1,7 @@
 # Temperature mod for htop
 
 
-This is a modified version of htop, enabling the usage of `lm-sensors`.
+This is a modified version of htop, enabling the usage of `lm-sensors`. Thanks to [redeagle](https://github.com/redeagle) for his [original gist](https://gist.github.com/redeagle/5227747)!
 
 ![Screenshot](https://github.com/nobol/htop/blob/master/Screenshot%20from%202016-05-30%2021-04-46.png)
 
