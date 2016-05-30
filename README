@@ -3,7 +3,7 @@
 
 This is a modified version of htop, enabling the usage of `lm-sensors`.
 
-!(https://github.com/nobol/htop/blob/master/Screenshot%20from%202016-05-30%2021-04-46.png)
+![Screenshot](https://github.com/nobol/htop/blob/master/Screenshot%20from%202016-05-30%2021-04-46.png)
 
 Necessary steps to clone, build and install:
 
@@ -12,7 +12,8 @@ Clone the repo
 git clone https://github.com/nobol/htop.git && cd htop
 ```
 
-Build it (I modified the configure to reflect the default Arch Linux htop directory, if you don't want this, just remove all the options behind `/configure`)
+Build it
+(I modified the configure to reflect the default Arch Linux htop directory, if you don't want this, just remove all the options behind `./configure`)
 ```
 ./autogen.sh && ./configure --prefix=/usr --sysconfdir=/etc --enable-unicode --enable-openvz --enable-vserver --enable-cgroup && sudo make install
 ```
