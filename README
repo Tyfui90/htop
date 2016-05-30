@@ -1,4 +1,28 @@
-[![Build Status](https://travis-ci.org/hishamhm/htop.svg?branch=master)](https://travis-ci.org/hishamhm/htop)
+# Temperture mod for htop
+
+Necessary steps to clone, build and install:
+
+Clone the repo
+```
+git clone https://github.com/nobol/htop.git && cd htop
+```
+
+Build it (I modified the configure to reflect the default Arch Linux htop directory, if you don't want this, just remove all the options behind `/configure`)
+```
+./autogen.sh && ./configure --prefix=/usr --sysconfdir=/etc --enable-unicode --enable-openvz --enable-vserver --enable-cgroup && sudo make install
+```
+
+Run it
+```
+htop
+```
+
+You can also find a gist with the patch only:
+https://gist.github.com/nobol/8eb5a397329cfc8be876ef57a2d2e9a8
+
+
+# ORIGINAL README from [hishamshm's htop repo](https://github.com/hishamhm/htop)
+
 [![PayPal donate](https://img.shields.io/badge/paypal-donate-green.svg)](http://hisham.hm/htop/index.php?page=donate)
 
 [htop](http://hisham.hm/htop/)
