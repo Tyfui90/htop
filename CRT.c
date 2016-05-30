@@ -78,6 +78,9 @@ typedef enum ColorElements_ {
    UPTIME,
    BATTERY,
    TASKS_RUNNING,
+   TEMPERATURE_COOL,
+   TEMPERATURE_MEDIUM,
+   TEMPERATURE_HOT,
    SWAP,
    PROCESS,
    PROCESS_SHADOW,
@@ -182,6 +185,9 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [METER_VALUE] = A_BOLD | ColorPair(Cyan,Black),
       [LED_COLOR] = ColorPair(Green,Black),
       [TASKS_RUNNING] = A_BOLD | ColorPair(Green,Black),
+      [TEMPERATURE_COOL] = A_DIM | ColorPair(Green,Black),
+      [TEMPERATURE_MEDIUM] = A_NORMAL | ColorPair(Yellow,Black),
+      [TEMPERATURE_HOT] = A_BOLD | ColorPair(Red,Black),
       [PROCESS] = A_NORMAL,
       [PROCESS_SHADOW] = A_BOLD | ColorPair(Black,Black),
       [PROCESS_TAG] = A_BOLD | ColorPair(Yellow,Black),
@@ -241,6 +247,9 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [METER_VALUE] = A_BOLD,
       [LED_COLOR] = A_NORMAL,
       [TASKS_RUNNING] = A_BOLD,
+      [TEMPERATURE_COOL] = A_DIM,
+      [TEMPERATURE_MEDIUM] = A_NORMAL,
+      [TEMPERATURE_HOT] = A_BOLD,
       [PROCESS] = A_NORMAL,
       [PROCESS_SHADOW] = A_DIM,
       [PROCESS_TAG] = A_BOLD,
@@ -300,6 +309,9 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [METER_VALUE] = ColorPair(Black,White),
       [LED_COLOR] = ColorPair(Green,White),
       [TASKS_RUNNING] = ColorPair(Green,White),
+      [TEMPERATURE_COOL] = ColorPair(Green,White),
+      [TEMPERATURE_MEDIUM] = ColorPair(Yellow,White),
+      [TEMPERATURE_HOT] = ColorPair(Red,White),
       [PROCESS] = ColorPair(Black,White),
       [PROCESS_SHADOW] = A_BOLD | ColorPair(Black,White),
       [PROCESS_TAG] = ColorPair(White,Blue),
@@ -359,6 +371,9 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [METER_VALUE] = ColorPair(Black,Black),
       [LED_COLOR] = ColorPair(Green,Black),
       [TASKS_RUNNING] = ColorPair(Green,Black),
+      [TEMPERATURE_COOL] = ColorPair(Green,Black),
+      [TEMPERATURE_MEDIUM] = ColorPair(Yellow,Black),
+      [TEMPERATURE_HOT] = ColorPair(Red,Black),
       [PROCESS] = ColorPair(Black,Black),
       [PROCESS_SHADOW] = A_BOLD | ColorPair(Black,Black),
       [PROCESS_TAG] = ColorPair(White,Blue),
@@ -418,6 +433,9 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [METER_VALUE] = A_BOLD | ColorPair(Cyan,Blue),
       [LED_COLOR] = ColorPair(Green,Blue),
       [TASKS_RUNNING] = A_BOLD | ColorPair(Green,Blue),
+      [TEMPERATURE_COOL] = A_DIM | ColorPair(Green,Blue),
+      [TEMPERATURE_MEDIUM] = A_NORMAL | ColorPair(Yellow,Blue),
+      [TEMPERATURE_HOT] = A_BOLD | ColorPair(Red,Blue),
       [PROCESS] = ColorPair(White,Blue),
       [PROCESS_SHADOW] = A_BOLD | ColorPair(Black,Blue),
       [PROCESS_TAG] = A_BOLD | ColorPair(Yellow,Blue),
@@ -477,6 +495,9 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [METER_VALUE] = ColorPair(Green,Black),
       [LED_COLOR] = ColorPair(Green,Black),
       [TASKS_RUNNING] = A_BOLD | ColorPair(Green,Black),
+      [TEMPERATURE_COOL] = A_DIM | ColorPair(Green,Black),
+      [TEMPERATURE_MEDIUM] = A_NORMAL | ColorPair(Yellow,Black),
+      [TEMPERATURE_HOT] = A_BOLD | ColorPair(Red,Black),
       [PROCESS] = ColorPair(Cyan,Black),
       [PROCESS_SHADOW] = A_BOLD | ColorPair(Black,Black),
       [PROCESS_TAG] = A_BOLD | ColorPair(Yellow,Black),
@@ -552,12 +573,12 @@ void CRT_init(int delay, int colorScheme) {
    }
    CRT_colors = CRT_colorSchemes[colorScheme];
    CRT_colorScheme = colorScheme;
-   
+
    for (int i = 0; i < LAST_COLORELEMENT; i++) {
       unsigned int color = CRT_colorSchemes[COLORSCHEME_DEFAULT][i];
       CRT_colorSchemes[COLORSCHEME_BROKENGRAY][i] = color == (A_BOLD | ColorPair(Black,Black)) ? ColorPair(White,Black) : color;
    }
-   
+
    halfdelay(CRT_delay);
    nonl();
    intrflush(stdscr, false);
@@ -667,7 +688,7 @@ void CRT_setColors(int colorScheme) {
          for (int j = 0; j < 8; j++)
             init_pair((7-i)*8+j, i, j);
    } else {
-      for (int i = 0; i < 8; i++) 
+      for (int i = 0; i < 8; i++)
          for (int j = 0; j < 8; j++)
             init_pair((7-i)*8+j, i, (j==0?-1:j));
    }
