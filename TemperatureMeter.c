@@ -34,43 +34,31 @@ static void TemperatureMeter_setValues(Meter* this, char* buffer, int len) {
 }
 
 static void TemperatureMeter_display(Object* cast, RichString* out) {
-   FILE *p;
-   p = popen("sensors", "r");
-   if(p == NULL) return 1;
-
-   int textColor   = CRT_colors[METER_TEXT];
+int textColor   = CRT_colors[METER_TEXT];
    int coolColor   = CRT_colors[TEMPERATURE_COOL];
    int mediumColor = CRT_colors[TEMPERATURE_MEDIUM];
    int hotColor    = CRT_colors[TEMPERATURE_HOT];
+   char *line[100];
+   char *tend[100];
 
-   size_t read, len;
-   char *line = NULL;
-   char *entry = NULL;
-   char *tstart = NULL, *tend = NULL;
    int  temperature;
-   while ((read = getline(&line, &len, p)) != -1) {
-      // contains this line a core-temperature?
-      entry = strstr(line, "Core ");
-      if (entry == NULL) continue;
+   
 
-      // find the begin of the temperature value
-      tstart = strchr(entry, '+'); // no negative temperatures expected :)
-      if (tstart == NULL) continue;
-      tstart++; // jump over the '+'
 
-      // find the end of the temperature. Remember, it can be above 99°C ;)
-      tend = strchr(tstart, '.'); // just the integer
-      if (tend == NULL) continue;
+FILE* file = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
+         char* ok = fgets(line, 100, file);
+fclose(file);
 
-      // convert the string into an integer, this is necessary for further steps
-      temperature = strtol(tstart, &tend, 10);
-      if (temperature == LONG_MAX || temperature == LONG_MIN) continue;
-      if (tstart == tend) continue;
+ // line contains the temprature, we just need to do some math on it.
+
+ // convert the string into an integer, this is necessary for further steps
+      temperature = strtol(line, &tend, 10);
+	temperature = temperature / 1000;
 
       // choose the color for the temperature
       int tempColor;
-      if      (temperature < 60)                      tempColor = coolColor;
-      else if (temperature >= 60 && temperature < 70) tempColor = mediumColor;
+      if      (temperature < 65)                      tempColor = coolColor;
+      else if (temperature >= 65 && temperature < 75) tempColor = mediumColor;
       else                                            tempColor = hotColor;
 
       // output the temperature
@@ -78,10 +66,8 @@ static void TemperatureMeter_display(Object* cast, RichString* out) {
       sprintf(buffer, "%d", temperature);
       RichString_append(out, tempColor, buffer);
       RichString_append(out, textColor, "°C ");
-   }
 
-   free(line);
-   pclose(p);
+   //free(line);
 }
 
 MeterClass TemperatureMeter_class = {
