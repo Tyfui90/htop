@@ -39,10 +39,10 @@ EnvScreen.h InfoScreen.h XAlloc.h
 if HTOP_LINUX
 htop_CFLAGS += -rdynamic
 myhtopplatsources = linux/Platform.c linux/IOPriorityPanel.c linux/IOPriority.c \
-linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c TemperatureMeter.c
+linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c TemperatureMeter.c FreqMeter.c
 
 myhtopplatheaders = linux/Platform.h linux/IOPriorityPanel.h linux/IOPriority.h \
-linux/LinuxProcess.h linux/LinuxProcessList.h linux/LinuxCRT.h linux/Battery.h TemperatureMeter.h
+linux/LinuxProcess.h linux/LinuxProcessList.h linux/LinuxCRT.h linux/Battery.h TemperatureMeter.h FreqMeter.h
 endif
 
 if HTOP_FREEBSD
