@@ -1,26 +1,20 @@
-# Temperature mod for htop
+# htop customized for the Raspberry Pi.  Includes CPU Temperature display and Current CPU Frequency display (in MHz).
 
+This is a modified version of htop, enabling the display of Raspberry Pi CPU Temperature and CPU Frequency.   Thanks to [redeagle](https://github.com/redeagle) for his [original gist](https://gist.github.com/redeagle/5227747) 
+and [nobol] for his : https://github.com/nobol/htop
 
-This is a modified version of htop, enabling the usage of `lm_sensors`. Thanks to [redeagle](https://github.com/redeagle) for his [original gist](https://gist.github.com/redeagle/5227747)!
-
-![Screenshot](https://github.com/nobol/htop/blob/master/Screenshot%20from%202016-05-30%2021-04-46.png)
+![Screenshot](https://raw.githubusercontent.com/leeadama/htop/master/ScreenShot2018-03-23.png)
 
 Necessary steps to clone, build and install:
 
-Install `lm_sensors` for your distribution, e. g. for Arch Linux:
-```
-sudo pacman -S lm_sensors
-```
-
 Clone the repo
 ```
-git clone https://github.com/nobol/htop.git && cd htop
+git clone https://github.com/leeadama/htop.git && cd htop
 ```
 
 Build it
-(I modified the configure to reflect the default Arch Linux htop directory, if you don't want this, just remove all the options behind `./configure`)
 ```
-./autogen.sh && ./configure --prefix=/usr --sysconfdir=/etc --enable-unicode --enable-openvz --enable-vserver --enable-cgroup && sudo make install
+./autogen.sh && ./configure && sudo make install
 ```
 
 Run it
@@ -28,11 +22,8 @@ Run it
 htop
 ```
 
-You can also find a gist with the patch only:
-https://gist.github.com/nobol/8eb5a397329cfc8be876ef57a2d2e9a8
-
-
 # ORIGINAL README from [hishamshm's htop repo](https://github.com/hishamhm/htop)
+# AND nobol's htop repo (https://github.com/nobol/htop)
 
 [![PayPal donate](https://img.shields.io/badge/paypal-donate-green.svg)](http://hisham.hm/htop/index.php?page=donate)
 
