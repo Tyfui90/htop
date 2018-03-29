@@ -8,7 +8,7 @@ and [nobol] for his : https://github.com/nobol/htop
 Necessary steps to clone, build and install on a Raspberry Pi:
 
 Install the Prereq.
-# You may already have some of these installed
+You may already have some of these installed
 ```
 sudo apt update
 sudo apt install libtool autopoint libncursesw5-dev autoconf automake git build-essential
@@ -19,9 +19,16 @@ Clone the repo
 git clone https://github.com/leeadama/htop.git && cd htop
 ```
 
+Remove the built-in htop
+```
+sudo apt remove htop
+```
+
 Build it
 ```
-./autogen.sh && ./configure && sudo make install
+./autogen.sh 
+./configure
+sudo make install
 ```
 
 Run it
