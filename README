@@ -6,9 +6,10 @@ and [nobol] for his : https://github.com/nobol/htop
 ![Screenshot](https://raw.githubusercontent.com/leeadama/htop/master/ScreenShot2018-03-23.png)
 
 Necessary steps to clone, build and install on a Raspberry Pi:
+(Tested on a Raspbery Pi 3 Model B and Raspberry Pi 1 Model B)
+(Because that's what I have.  It should work on any Raspberry Pi running rasbian(The default OS) though.)
 
 Install the Prereq.
-You may already have some of these installed
 ```
 sudo apt update
 sudo apt install libtool autopoint libncursesw5-dev autoconf automake git build-essential
