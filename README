@@ -74,21 +74,7 @@ Comparison between `htop` and classic `top`
 * In `htop` you can kill multiple processes at once.
 * `top` is older, hence, more tested.
 
-Compilation instructions
-------------------------
-
-This program is distributed as a standard autotools-based package.
-See the [INSTALL](/INSTALL) file for detailed instructions.
-
-When compiling from a release tarball, run:
-
-    ./configure && make
-
-For compiling sources downloaded from the Git repository, run:
-
-    ./autogen.sh && ./configure && make
-
-By default `make install` will install into `/usr/local`, for changing
+by default `make install` will install into `/usr/local`, for changing
 the path use `./configure --prefix=/some/path`.
 
 See the manual page (`man htop`) or the on-line help ('F1' or 'h'
