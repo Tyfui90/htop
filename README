@@ -14,14 +14,9 @@ sudo apt update
 sudo apt install libtool autopoint libncursesw5-dev autoconf automake git build-essential
 ```
 
-Clone the repo
+Clone the lepotato branch
 ```
-git clone https://github.com/leeadama/htop.git && cd htop
-```
-
-Switch to the lepotato branch
-```
-git checkout -b lepotato
+git clone -b lepotato https://github.com/leeadama/htop.git && cd htop
 ```
 
 Remove the built-in htop
