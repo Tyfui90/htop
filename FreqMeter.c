@@ -57,8 +57,8 @@ fclose(file);
 
       // choose the color for the temperature
       int tempColor;
-      if      (freq < 1100)                      tempColor = coolColor;
-      else if (freq >= 1200 && freq < 1400) tempColor = mediumColor;
+      if      (freq < 1500)                      tempColor = coolColor;
+      else if (freq >= 1500 && freq < 1600) tempColor = mediumColor;
       else                                             tempColor = hotColor;
 
       // output the temperature
