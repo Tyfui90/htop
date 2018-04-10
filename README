@@ -19,6 +19,11 @@ Clone the repo
 git clone https://github.com/leeadama/htop.git && cd htop
 ```
 
+Switch to the lepotato branch
+```
+git checkout -b iss53
+```
+
 Remove the built-in htop
 ```
 sudo apt remove htop
