@@ -45,7 +45,7 @@ int textColor   = CRT_colors[METER_TEXT];
    
 
 
-FILE* file = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
+FILE* file = fopen("/sys/class/hwmon/hwmon0/temp1_input", "r");
          char* ok = fgets(line, 100, file);
 fclose(file);
 
