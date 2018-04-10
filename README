@@ -1,13 +1,12 @@
-# htop customized for the Raspberry Pi.  Includes CPU Temperature display and Current CPU Frequency display (in MHz).
+# htop customized for the AML-S905X-CC (Le Potato).  Includes CPU Temperature display and Current CPU Frequency display (in MHz).
 
-This is a modified version of htop, enabling the display of Raspberry Pi CPU Temperature and CPU Frequency.   Thanks to [redeagle](https://github.com/redeagle) for his [original gist](https://gist.github.com/redeagle/5227747) 
+This is a modified version of htop, enabling the display of AML-S905X-CC (Le Potato) CPU Temperature and CPU Frequency.   Thanks to [redeagle](https://github.com/redeagle) for his [original gist](https://gist.github.com/redeagle/5227747) 
 and [nobol] for his : https://github.com/nobol/htop
 
 ![Screenshot](https://raw.githubusercontent.com/leeadama/htop/master/ScreenShot2018-03-23.png)
 
-Necessary steps to clone, build and install on a Raspberry Pi:
-(Tested on a Raspbery Pi 3 Model B and Raspberry Pi 1 Model B)
-(Because that's what I have.  It should work on any Raspberry Pi running rasbian(The default OS) though.)
+Necessary steps to clone, build and install on a AML-S905X-CC (Le Potato):
+(Tested on a AML-S905X-CC (Le Potato))
 
 Install the Prereq.
 ```
