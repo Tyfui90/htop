@@ -36,6 +36,7 @@ Run it
 ```
 htop
 ```
+Then you can add the Temperature and/or frequency meter by pressing F2 and choosing the one you want.
 
 # ORIGINAL README from [hishamshm's htop repo](https://github.com/hishamhm/htop)
 # AND nobol's htop repo (https://github.com/nobol/htop)
