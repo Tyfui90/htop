@@ -1,4 +1,4 @@
-# htop customized for the Raspberry Pi.  Includes CPU Temperature display and Current CPU Frequency display (in MHz).
+# htop customized for the AtomicPi.  Includes CPU Temperature display and Current CPU Frequency display (in MHz).
 
 This is a modified version of htop, enabling the display of Raspberry Pi CPU Temperature and CPU Frequency.   Thanks to [redeagle](https://github.com/redeagle) for his [original gist](https://gist.github.com/redeagle/5227747) 
 and [nobol] for his : https://github.com/nobol/htop
