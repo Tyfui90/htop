@@ -14,6 +14,13 @@ sudo apt update
 sudo apt install lm-sensors libtool autopoint libncursesw5-dev autoconf automake git build-essential
 ```
 
+Setup lm_sensors (Follow the prompts and scan everything)
+```
+sudo sensors-detect 
+sudo /etc/init.d/kmod start
+```
+
+
 Clone the repo
 ```
 git clone -b atomicpi https://github.com/leeadama/htop.git && cd htop
