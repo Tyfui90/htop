@@ -11,7 +11,7 @@ Necessary steps to clone, build and install on a AtomicPi:
 Install the Prereq.
 ```
 sudo apt update
-sudo apt install libtool autopoint libncursesw5-dev autoconf automake git build-essential
+sudo apt install lm-sensors libtool autopoint libncursesw5-dev autoconf automake git build-essential
 ```
 
 Clone the repo
