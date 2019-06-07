@@ -3,7 +3,7 @@
 This is a modified version of htop, enabling the display of AtomicPi CPU Temperature and CPU Frequency.   Thanks to [redeagle](https://github.com/redeagle) for his [original gist](https://gist.github.com/redeagle/5227747) 
 and [nobol] for his : https://github.com/nobol/htop
 
-![Screenshot](https://raw.githubusercontent.com/leeadama/htop/master/ScreenShot2018-03-23.png)
+![Screenshot](https://raw.githubusercontent.com/leeadama/htop/atomicpi/2019-06-06.png)
 
 Necessary steps to clone, build and install on a AtomicPi:
 (Tested on a clean install of Ubuntu Server 18.04 LTS)
